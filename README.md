@@ -1,4 +1,4 @@
-# Muesli Docs 🥣
+# Muesli Docs
 
 Documentation site for **Muesli** — *Google Docs for Markdown files*. Real-time
 multiplayer markdown editing, self-hostable and open source.
