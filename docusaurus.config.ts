@@ -15,7 +15,7 @@ const config: Config = {
   // Full icon set + warm-gold theme-color (the brand accent; matches
   // site.webmanifest). The `favicon` above emits the primary <link>; these add the
   // PNG sizes, apple-touch icon, PWA manifest and browser-chrome color.
-  // Assets live in static/img/ (derived from ../assets-new).
+  // Assets live in static/img/ (derived from ../assets).
   headTags: [
     {
       tagName: 'link',
