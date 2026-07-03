@@ -28,7 +28,7 @@ Choose **Work locally** to open a folder of Markdown files on this computer — 
 
 Choose **Connect to a server** to sign in and collaborate:
 
-1. The **Sign in to Muesli** dialog opens. It always shows which server the sign-in will run against (a fresh install defaults to `muesli.md`); click **Change…** to point it at your own instance instead.
+1. The **Sign in to Muesli** dialog opens. It always shows which server the sign-in will run against (a fresh install defaults to `app.muesli.md`); click **Change…** to point it at your own instance instead.
 2. Click **Continue**. Sign-in uses the OIDC device-code flow: your system browser opens to the server's identity provider, and the app picks up the credential when you approve.
 3. After signing in, the create-workspace wizard walks you through setting up your first workspace.
 
