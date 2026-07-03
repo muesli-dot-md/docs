@@ -4,7 +4,7 @@
   "description": "Documentation for Muesli — Google Docs for Markdown files.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#181A25",
+  "background_color": "#181a25",
   "theme_color": "#cc9350",
   "icons": [
     { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },

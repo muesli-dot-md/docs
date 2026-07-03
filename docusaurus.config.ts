@@ -12,9 +12,10 @@ const config: Config = {
   tagline: 'Documentation for Muesli — Google Docs for Markdown files',
   favicon: 'img/favicon.ico',
 
-  // Full icon set + amber theme-color (logo #7). The `favicon` above emits the
-  // primary <link>; these add the PNG sizes, apple-touch icon, PWA manifest and
-  // browser-chrome color. Assets live in static/img/ (derived from ../assets).
+  // Full icon set + warm-gold theme-color (the brand accent; matches
+  // site.webmanifest). The `favicon` above emits the primary <link>; these add the
+  // PNG sizes, apple-touch icon, PWA manifest and browser-chrome color.
+  // Assets live in static/img/ (derived from ../assets-new).
   headTags: [
     {
       tagName: 'link',
