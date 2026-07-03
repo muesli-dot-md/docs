@@ -19,6 +19,10 @@ const config: Config = {
   headTags: [
     {
       tagName: 'link',
+      attributes: { rel: 'icon', type: 'image/svg+xml', href: '/img/favicon.svg' },
+    },
+    {
+      tagName: 'link',
       attributes: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/favicon-32x32.png' },
     },
     {
@@ -88,8 +92,8 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Social card — Agent 3 will replace with Muesli branding.
-    image: 'img/docusaurus-social-card.jpg',
+    // Social card: 1200x630 OG composition from the brand assets.
+    image: 'img/muesli-social-card.png',
     colorMode: {
       // Dark-first, matching the marketing site; toggle stays available.
       defaultMode: 'dark',
