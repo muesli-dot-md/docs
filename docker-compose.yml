@@ -1,0 +1,38 @@
+# Deploy the Muesli docs site (docs.muesli.md) behind Traefik on a VPS.
+#
+# Prerequisites on the host (created once, outside this file):
+#   1. An external Docker network named `traefik` that the Traefik container
+#      is also attached to:
+#          docker network create traefik
+#   2. A running Traefik instance with:
+#        - a `websecure` entrypoint (:443)
+#        - an ACME certificate resolver named `letsencrypt`
+#      (adjust the label values below if your Traefik uses different names).
+#
+# This service publishes NO host ports — Traefik handles all routing/TLS.
+# Pull + run:  docker compose pull && docker compose up -d
+
+services:
+  docs:
+    image: ghcr.io/muesli-dot-md/docs:latest
+    container_name: muesli-docs
+    restart: unless-stopped
+    networks:
+      - traefik
+    expose:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      # Only expose this service on the internal `traefik` network.
+      - "traefik.docker.network=traefik"
+      # Router
+      - "traefik.http.routers.muesli-docs.rule=Host(`docs.muesli.md`)"
+      - "traefik.http.routers.muesli-docs.entrypoints=websecure"
+      - "traefik.http.routers.muesli-docs.tls=true"
+      - "traefik.http.routers.muesli-docs.tls.certresolver=letsencrypt"
+      # Service (which container port Traefik forwards to)
+      - "traefik.http.services.muesli-docs.loadbalancer.server.port=80"
+
+networks:
+  traefik:
+    external: true

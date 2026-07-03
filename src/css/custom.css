@@ -1,0 +1,189 @@
+/**
+ * Muesli docs theme (docs.muesli.md).
+ * ------------------------------------------------------------------
+ * Mirrors the marketing site's design language v2 (website/DESIGN-NOTES.md):
+ * dark-first, near-black canvas, periwinkle #686CF4 accent, editorial
+ * serif (Gloock, self-hosted) for page titles, system-sans body, mono
+ * chips, hairline rules, pill buttons. Light theme kept and tuned.
+ * Content stays as-is.
+ */
+
+@font-face {
+  font-family: 'Gloock';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gloock-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- Light ---- */
+:root {
+  /* Periwinkle primary scale */
+  --ifm-color-primary: #5457e6;
+  --ifm-color-primary-dark: #3f43e0;
+  --ifm-color-primary-darker: #383cd9;
+  --ifm-color-primary-darkest: #2e31b3;
+  --ifm-color-primary-light: #6a6dea;
+  --ifm-color-primary-lighter: #7477eb;
+  --ifm-color-primary-lightest: #9799f0;
+
+  /* Typography — match the site's stacks */
+  --muesli-font-display: 'Gloock', 'Iowan Old Style', Georgia, serif;
+  --ifm-font-family-base:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  --ifm-font-family-monospace:
+    ui-monospace, 'SF Mono', 'JetBrains Mono', 'Fira Code', Menlo, Consolas,
+    monospace;
+  --ifm-heading-font-weight: 650;
+  --ifm-code-font-size: 92%;
+
+  /* Surfaces */
+  --ifm-background-color: #fafaf8;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-navbar-background-color: rgba(250, 250, 248, 0.85);
+  --ifm-footer-background-color: #0a0a0f;
+  --ifm-color-content: #131217;
+  --ifm-color-content-secondary: #4f4e59;
+  --ifm-toc-border-color: rgba(19, 18, 23, 0.1);
+  --ifm-hr-background-color: rgba(19, 18, 23, 0.1);
+
+  /* Shape + depth: hairlines over shadows */
+  --ifm-global-radius: 0.6rem;
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+
+  /* Inline code chips */
+  --ifm-code-background: rgba(104, 108, 244, 0.1);
+  --ifm-code-color: #4b4ed6;
+
+  --docusaurus-highlighted-code-line-bg: rgba(104, 108, 244, 0.14);
+}
+
+/* ---- Dark (default) ---- */
+[data-theme='dark'] {
+  --ifm-color-primary: #8a8df6;
+  --ifm-color-primary-dark: #7376f4;
+  --ifm-color-primary-darker: #686cf4;
+  --ifm-color-primary-darkest: #4d51ef;
+  --ifm-color-primary-light: #a1a4f8;
+  --ifm-color-primary-lighter: #acaef9;
+  --ifm-color-primary-lightest: #cccefb;
+
+  --ifm-background-color: #0a0a0f;
+  --ifm-background-surface-color: #14141c;
+  --ifm-navbar-background-color: rgba(10, 10, 15, 0.8);
+  --ifm-footer-background-color: #07070b;
+  --ifm-color-content: #f0eff6;
+  --ifm-color-content-secondary: #a3a1b2;
+  --ifm-toc-border-color: rgba(240, 239, 246, 0.1);
+  --ifm-hr-background-color: rgba(240, 239, 246, 0.1);
+
+  --ifm-code-background: rgba(138, 141, 246, 0.16);
+  --ifm-code-color: #cccefb;
+
+  --docusaurus-highlighted-code-line-bg: rgba(138, 141, 246, 0.2);
+}
+
+/*
+ * Editorial serif voice for the page-level headings and the brand,
+ * matching the marketing site's display type.
+ */
+.navbar__title {
+  font-family: var(--muesli-font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+article header h1,
+.markdown h1:first-child,
+h1.hero__title {
+  font-family: var(--muesli-font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.2rem);
+  text-wrap: balance;
+}
+
+/* Frosted, hairline navbar to match the site chrome. */
+.navbar {
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+/* Search input as a rounded pill (tolaria-style ⌘K look). */
+.navbar__search-input,
+.DocSearch-Button {
+  border-radius: 999px;
+}
+
+/* Sidebar: quiet links, periwinkle-tinted active pill. */
+.menu__link {
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+.menu__link--active:not(.menu__link--sublist) {
+  background: rgba(104, 108, 244, 0.12);
+}
+
+/* TOC ("On this page"): hairline with an accent bar on the active item. */
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Buttons: pills, echoing the site CTAs. */
+.button {
+  border-radius: 999px;
+}
+
+/* Code blocks: rounded, hairline-bordered, no heavy shadow. */
+.theme-code-block,
+div[class*='codeBlockContainer'] {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+/* kbd chips (tolaria docs voice). */
+kbd {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8em;
+  padding: 0.1em 0.45em;
+  border-radius: 0.35rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-toc-border-color);
+  border-bottom-width: 2px;
+  box-shadow: none;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Prev/next pagination as hairline cards. */
+.pagination-nav__link {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: var(--ifm-global-radius);
+  transition: border-color 0.15s ease;
+}
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Hairline hr between doc sections. */
+.markdown hr {
+  height: 1px;
+  border: 0;
+  background: var(--ifm-hr-background-color);
+}
+
+/* On-brand focus rings for keyboard users. */
+a:focus-visible,
+.menu__link:focus-visible,
+.button:focus-visible {
+  outline: 2px solid rgba(104, 108, 244, 0.55);
+  outline-offset: 2px;
+}
